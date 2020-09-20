@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -20,15 +21,23 @@ public class MainActivity extends AppCompatActivity implements itemAdapter.OnIte
     ArrayList<User> items;
     FloatingActionButton button_add;
     private RecyclerView.LayoutManager mLayoutManager;
+    TextView status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         _RecyclerView = findViewById(R.id.recyclerView);
+        status = findViewById(R.id.text_statusData);
 
         loadUsers();
 
+        if (getSetUser.items.isEmpty()) {
+            status.setText("No Data");
+        }
+        else {
+            status.setText("");
+        }
 //        items.add(new User("Tim", 21, "Indonesia"));
 //
         showUsers();

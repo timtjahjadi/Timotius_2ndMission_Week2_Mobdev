@@ -23,6 +23,7 @@ public class AddAndEditActivity extends AppCompatActivity {
     TextView title;
     User user;
     Boolean isAdd;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,13 @@ public class AddAndEditActivity extends AppCompatActivity {
                 _name = editName.getText().toString().trim();
                 _age = editAge.getText().toString().trim();
                 _address = editAddress.getText().toString().trim();
+
+                //Nampilin Loading Screen
+                progressDialog = new ProgressDialog(AddAndEditActivity.this);
+                progressDialog.show();
+                progressDialog.setContentView(R.layout.loading_screen);
+                progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                //
 
                 if (isAdd) {
                     if (TextUtils.isEmpty(_name) || TextUtils.isEmpty(_age) || TextUtils.isEmpty(_address)) {

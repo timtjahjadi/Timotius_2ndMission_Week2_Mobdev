@@ -38,7 +38,6 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
             name = itemView.findViewById(R.id.text_name);
             age = itemView.findViewById(R.id.text_age);
             location = itemView.findViewById(R.id.text_location);
-            image = itemView.findViewById(R.id.image_person);
             this.onItemListener = onItemListener;
 
             itemView.setOnClickListener(this);
@@ -65,7 +64,6 @@ public class itemAdapter extends RecyclerView.Adapter<itemAdapter.ViewHolder> {
         holder.name.setText(currentItem.get_Name());
         holder.age.setText(String.valueOf(currentItem.get_age()));
         holder.location.setText(currentItem.get_Address());
-//        holder.image.setImageDrawable();
     }
 
     @Override
